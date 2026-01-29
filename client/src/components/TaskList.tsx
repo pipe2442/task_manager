@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import TaskCard from "./TaskCard";
+import TaskForm from "./TaskForm";
 
 const TaskList: React.FC = () => {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState<Task[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -23,6 +24,8 @@ const TaskList: React.FC = () => {
     getTasks();
   }, []);
 
+  const handleCreate = (task: Task) => setTasks((prev) => [task, ...prev]);
+
   if (loading)
     return (
       <div className="max-w-3xl mx-auto p-6">
@@ -39,7 +42,8 @@ const TaskList: React.FC = () => {
 
   return (
     <div className="max-w-3xl mx-auto p-6">
-      <h1 className="text-2xl font-bold tracking-tight text-gray-900 mb-4">Tasks</h1>
+      <h1 className="text-2xl font-bold tracking-tight text-gray-900 mb-4">Super Task Manager</h1>
+      <TaskForm onCreate={handleCreate} />
       {tasks.length === 0 ? (
         <div className="text-sm text-gray-600">No tasks available.</div>
       ) : (

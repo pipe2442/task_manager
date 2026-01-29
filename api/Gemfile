@@ -24,7 +24,7 @@ gem "solid_cable"
 gem "bootsnap", require: false
 
 # cors handling
-gem 'rack-cors'
+gem "rack-cors"
 
 # Deploy this application anywhere as a Docker container [https://kamal-deploy.org]
 gem "kamal", require: false
