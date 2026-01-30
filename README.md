@@ -14,8 +14,8 @@ Using Docker (recommended):
 
 Running locally (without Docker):
 
-- Ruby (compatible with Rails 8)
-- Rails
+- Ruby 3.4.2
+- Rails 8.x
 - Bundler
 - Node.js (v18+ recommended)
 - npm
@@ -24,7 +24,9 @@ Running locally (without Docker):
 
 From the repository root, run:
 
+```
 docker compose up --build
+```
 
 Once everything is running:
 
@@ -35,19 +37,23 @@ Once everything is running:
 
 API (Rails):
 
+```
 cd api
 bundle install
-rails db:prepare
-rails s -b 0.0.0.0 -p 3000
+bundle exec rails db:prepare
+bundle exec rails
+```
 
 API will be available at:
 http://localhost:3000
 
 Client (React + Vite):
 
+```
 cd client
 npm install
-npm run dev -- --host 0.0.0.0 --port 5173
+npm run dev
+```
 
 Client will be available at:
 http://localhost:5173
