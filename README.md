@@ -1,5 +1,8 @@
 # Super Task Manager
 
+<img width="906" height="792" alt="Screenshot 2026-01-30 at 6 53 06 PM" src="https://github.com/user-attachments/assets/8d8932f3-4b5c-4b0f-849b-2aa3341451f6" />
+
+
 This project is a full-stack application composed of:
 
 - API: Ruby on Rails
