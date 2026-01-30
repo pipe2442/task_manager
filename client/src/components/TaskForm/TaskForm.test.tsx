@@ -1,5 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
+import type { SubmitHandler } from "react-hook-form";
+import type { TaskFormValues } from "../../types";
 import TaskForm from ".";
 
 vi.mock("../../hooks/useTaskForm", () => ({
@@ -10,7 +12,7 @@ vi.mock("../../hooks/useTaskForm", () => ({
       onBlur: vi.fn(),
       ref: vi.fn(),
     }),
-    handleSubmit: (fn: any) => fn,
+    handleSubmit: (fn: SubmitHandler<TaskFormValues>) => fn,
     errors: {},
     isSubmitting: false,
     submitError: "",

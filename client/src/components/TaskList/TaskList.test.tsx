@@ -11,6 +11,14 @@ vi.mock("../../hooks/useTaskList", () => ({
   }),
 }));
 
+vi.mock("../TaskForm", () => ({
+  default: () => <div>TaskForm</div>,
+}));
+
+vi.mock("../TaskCard", () => ({
+  default: () => <div>TaskCard</div>,
+}));
+
 describe("TaskList", () => {
   it("shows empty list", () => {
     render(<TaskList />);
