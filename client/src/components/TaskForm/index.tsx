@@ -1,6 +1,6 @@
 import React from "react";
-import useTaskForm from "../hooks/useTaskForm";
-import type { TaskFormProps } from "../types";
+import useTaskForm from "../../hooks/useTaskForm";
+import type { TaskFormProps } from "../../types";
 
 const TaskForm: React.FC<TaskFormProps> = ({ onCreate }) => {
   const { register, handleSubmit, errors, isSubmitting, submitError, onSubmit } = useTaskForm({

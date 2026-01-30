@@ -1,7 +1,7 @@
 import React from "react";
-import TaskCard from "./TaskCard";
-import TaskForm from "./TaskForm";
-import useTaskList from "../hooks/useTaskList";
+import TaskCard from "../TaskCard";
+import TaskForm from "../TaskForm";
+import useTaskList from "../../hooks/useTaskList";
 
 const TaskList: React.FC = () => {
   const { tasks, isLoading, errorMessage, handleCreate } = useTaskList();
