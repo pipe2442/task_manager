@@ -11,8 +11,8 @@
 tasks = [
   { title: "Buy groceries", description: "Milk, eggs, bread, fruits and vegetables." },
   { title: "Finish monthly report", description: "Complete the monthly report and send it by email." },
-  { title: "Call the doctor", description: "Schedule the annual appointment and confirm availability." },
-  { title: "Update dependencies", description: "Update gems and run the test suite." },
+  { title: "Call the doctor", description: "Schedule the annual appointment and confirm availability.", completed: true },
+  { title: "Update dependencies", description: "Update gems and run the test suite.", completed: true },
   { title: "Clean inbox", description: "Archive and reply to important emails." }
 ]
 

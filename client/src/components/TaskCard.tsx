@@ -1,11 +1,5 @@
 import React from "react";
-
-export type Task = {
-  id: number;
-  title: string;
-  description: string;
-  completed: boolean;
-};
+import type { Task } from "../types";
 
 const TaskCard: React.FC<{ task: Task }> = ({ task }) => {
   const badgeClass = task.completed

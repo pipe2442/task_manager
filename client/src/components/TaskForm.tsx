@@ -1,60 +1,11 @@
-import React, { useState } from "react";
-import { useForm } from "react-hook-form";
+import React from "react";
+import useTaskForm from "../hooks/useTaskForm";
+import type { TaskFormProps } from "../types";
 
-export type Task = {
-  id: number;
-  title: string;
-  description?: string;
-  completed: boolean;
-  created_at?: string;
-  updated_at?: string;
-};
-
-type Props = {
-  onCreate?: (task: Task) => void;
-};
-
-type FormValues = {
-  title: string;
-  description: string;
-};
-
-const TaskForm: React.FC<Props> = ({ onCreate }) => {
-  const [submitError, setSubmitError] = useState<string | null>(null);
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors, isSubmitting },
-  } = useForm<FormValues>({
-    defaultValues: { title: "", description: "" },
-    mode: "onSubmit",
+const TaskForm: React.FC<TaskFormProps> = ({ onCreate }) => {
+  const { register, handleSubmit, errors, isSubmitting, submitError, onSubmit } = useTaskForm({
+    onCreate,
   });
-
-  const onSubmit = async (data: FormValues) => {
-    const title = data.title.trim();
-    const description = data.description.trim();
-    if (!title || !description) return;
-
-    setSubmitError(null);
-    try {
-      const payload = { task: { title, description } };
-      const res = await fetch("http://localhost:3000/api/tasks", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-      if (!res.ok) {
-        const body = await res.json().catch(() => ({}));
-        throw new Error(body?.errors?.join?.(", ") || `HTTP ${res.status}`);
-      }
-      const created: Task = await res.json();
-      reset();
-      onCreate?.(created);
-    } catch (err: any) {
-      setSubmitError(err.message || "Failed to create task");
-    }
-  };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-3xl mx-auto mb-6">
